@@ -2,15 +2,15 @@
 
 class database
 {
-    const host = 'localhost';
-    const user = 'root';
-    const pwd = 'DanGerous11@';
+    const hostname = 'localhost';
+    const username = 'root1';
+    const password = '';
     const dbname = "thuctap";
     private $conn;
 
     public function __construct()
     {
-        $this->conn = mysqli_connect(self::hostname,self::username,self::pwd,self::dbname);
+        $this->conn = mysqli_connect(self::hostname,self::username,self::password,self::dbname);
     }
     public function DBreturn($query){
         return mysqli_query($this->conn,$query);
@@ -23,6 +23,8 @@ while($r=mysqli_fetch_object($b))
 {
     $res[]=$r;
 }
-print_r($res);
 
+print_r($res);
 ?>
+
+

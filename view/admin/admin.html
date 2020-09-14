@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<title>testPHP</title>
+	<style>
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	.topnav {
+		overflow: hidden;
+		background-color: #333;
+	}
+
+	.topnav a {
+		float: left;
+		color: #f2f2f2;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 17px;
+	}
+
+	.topnav a:hover {
+		background-color: #ddd;
+		color: black;
+	}
+
+	.topnav a.active {
+		background-color: #4CAF50;
+		color: white
+	}
+	</style>
+</head>
+<body>
+	<div class="topnav">
+		<a href="http://localhost/PHP/index.php">HOME</a>
+		<a class="active" href="http://localhost/PHP/index.php?controller=admin">ADMIN</a>
+	</div>
+	<h2><center>Admin view</center></h2>
+	<div>
+		<a href="index.php?controller=admin&action=addview" class="btn btn-info" role="button" style="margin-bottom:0.5%;margin-left:94.5%;">Add</a>
+	</div>
+	<center>
+		<table class="table table-bordered">
+		<tr class="thead-dark">
+			<th><center>ID</center></th>
+			<th><center>image</center></th>
+			<th><center>title</center></th>
+			<th><center>action</center></th>
+		</tr>
+			<?php
+				foreach($pr as $item){
+			?>
+			<tr>
+				<td style="width: 3%"><center><?php echo $item['id'];?></center></td>
+				<td style="width: 15%"><center><img src =<?php echo $item['image'];?> alt='anh'></center></td>
+				<td style="width: 60%"><center><h3><?php echo $item['title'];?></h3></center></td>
+				<td style="width: 5%"> <center><a href=<?php echo "http://localhost/PHP/index.php?controller=admin&action=show&id=".$item['id'] ?>>show</a>|<a href=<?php echo "http://localhost/PHP/index.php?controller=admin&action=edit&id=".$item['id'] ?>>edit</a>|<a href=<?php echo "http://localhost/PHP/index.php?controller=admin&action=delete&id=".$item['id'] ?>>delete</a></center></td>
+			</tr>
+			<?php
+			}
+			?>
+	</table>
+	</center>
+</body>
+</html>

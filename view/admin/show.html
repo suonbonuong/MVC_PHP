@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Detail</title>
+</head>
+<body>
+<h1><center>Show details</center></h1>
+<div class="form-group row">
+    <label class="col-4 col-form-label">Title</label>
+    <div class="col-8">
+        <p id="Title" name="Title" type="text" class="form-control"><?php echo $title ?></p>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-4 col-form-label">Image</label>
+    <div class="col-8">
+        <img id ="image" src = <?php echo $img ?>  alt="anh" width = "300" height = auto>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-4 col-form-label">Description</label>
+    <div class="col-8">
+        <textarea readonly id="Description" name="Description" cols="40" rows="5" class="form-control"><?php echo $des ?></textarea>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-4 col-form-label">Creat at</label>
+    <div class="col-8">
+        <p id="create" name="Title" type="text" class="form-control"><?php echo $create ?></p>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-4 col-form-label">Update at</label>
+    <div class="col-8">
+        <p id="update" name="Title" type="text" class="form-control"><?php echo $update ?></p>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-4 col-form-label">status</label>
+    <div class="col-8">
+        <select id="status" name="status">
+            <option selected hidden ><?php echo $status ?></option>
+        </select>
+    </div>
+</div>
+</body>
+</html>
