@@ -35,8 +35,8 @@
 </head>
 <body>
 	<div class="topnav">
-		<a href="http://localhost/PHP/index.php">HOME</a>
-		<a class="active" href="http://localhost/PHP/index.php?controller=admin">ADMIN</a>
+		<a href="http://localhost/MVC/index.php">HOME</a>
+		<a class="active" href="http://localhost/MVC/index.php?controller=admin">ADMIN</a>
 	</div>
 	<h2><center>Admin view</center></h2>
 	<div>
@@ -57,7 +57,7 @@
 				<td style="width: 3%"><center><?php echo $item['id'];?></center></td>
 				<td style="width: 15%"><center><img src =<?php echo $item['image'];?> alt='anh'></center></td>
 				<td style="width: 60%"><center><h3><?php echo $item['title'];?></h3></center></td>
-				<td style="width: 5%"> <center><a href=<?php echo "http://localhost/PHP/index.php?controller=admin&action=show&id=".$item['id'] ?>>show</a>|<a href=<?php echo "http://localhost/PHP/index.php?controller=admin&action=edit&id=".$item['id'] ?>>edit</a>|<a href=<?php echo "http://localhost/PHP/index.php?controller=admin&action=delete&id=".$item['id'] ?>>delete</a></center></td>
+				<td style="width: 5%"> <center><a href=<?php echo "http://localhost/MVC/index.php?controller=admin&action=show&id=".$item['id'] ?>>show</a>|<a href=<?php echo "http://localhost/PHP/index.php?controller=admin&action=edit&id=".$item['id'] ?>>edit</a>|<a href=<?php echo "http://localhost/MVC/index.php?controller=admin&action=delete&id=".$item['id'] ?>>delete</a></center></td>
 			</tr>
 			<?php
 			}

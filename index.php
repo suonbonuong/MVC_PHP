@@ -1,5 +1,4 @@
 <?php
-
 require_once "controller/user.php";
 require_once "controller/admin.php";
 if (isset($_GET["controller"])){

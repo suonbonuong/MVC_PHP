@@ -16,15 +16,3 @@ class database
         return mysqli_query($this->conn,$query);
     }
 }
-
-$a =  new database();
-$b = $a->DBreturn("SELECT * FROM `table1");
-while($r=mysqli_fetch_object($b))
-{
-    $res[]=$r;
-}
-
-print_r($res);
-?>
-
-

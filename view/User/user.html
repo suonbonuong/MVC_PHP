@@ -3,7 +3,7 @@
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<title>testPHP</title>
+	<title>MVC PHP</title>
 	<style>
 	img {
 		max-width: 100%;
@@ -11,7 +11,7 @@
 	}
 	.topnav {
 		overflow: hidden;
-		background-color: #333;
+		background-color: #333333;
 	}
 
 	.topnav a {
@@ -36,16 +36,16 @@
 </head>
 <body>
 	<div class="topnav">
-		<a class="active" href="http://localhost/PHP/index.php">HOME</a>
-		<a href="http://localhost/PHP/index.php?controller=admin">ADMIN</a>
+		<a class="active" href="http://localhost/MVC/index.php">HOME</a>
+		<a href="http://localhost/MVC/index.php?controller=admin">ADMIN</a>
 	</div>
 	<h2><center>User view</center></h2>
 	<center>
 	<table class="table table-bordered">
 		<tr class="thead-dark">
 			<th><center>ID</center></th>
-			<th><center>image</center></th>
-			<th><center>title</center></th>
+			<th><center>Image</center></th>
+			<th><center>Title</center></th>
 		</tr>
 			<?php
 				foreach($pr as $item){
