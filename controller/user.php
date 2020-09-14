@@ -11,8 +11,6 @@ class user
     public function index(){
         $pr = $this->model->getdata();
         require "view/User/user.html";
-
     }
-
 }
 ?>
