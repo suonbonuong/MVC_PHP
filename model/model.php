@@ -8,8 +8,8 @@ class model
     {
         $this->data= new database();
     }
-    public function getData(){
-        $tb = $this->data->DBreturn("SELECT * FROM `table1");
+    public function getData($limit){
+        $tb = $this->data->DBreturn("SELECT * FROM `table1` limit " . $limit);
         while($r=mysqli_fetch_array($tb))
         {
             $res[]=$r;
@@ -28,13 +28,11 @@ class model
         $this->data->DBreturn("DELETE from table1 where id=".$id);
     }
     public function add($title,$des,$img,$status){
-
         $this->data->DBreturn("INSERT INTO `table1`(`description`,`title`,`image`,`status`,`create_at`,`update_at`) VALUES ('".$des."','".$title."','".$img."','".$status."',NOW(),NOW())");
     }
     public function update($id,$title,$des,$status)
     {
         $this->data->DBreturn("UPDATE `table1` SET `title`='".$title."',`description`='".$des."',`status`='".$status."',`update_at`= NOW() WHERE id=".$id);
-
     }
 }
 ?>

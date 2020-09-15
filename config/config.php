@@ -11,3 +11,5 @@ class database
         return mysqli_query($this->conn,$query);
     }
 }
+
+?>
