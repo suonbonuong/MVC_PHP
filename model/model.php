@@ -8,8 +8,10 @@ class model
     {
         $this->data= new database();
     }
-    public function getData($limit){
-        $tb = $this->data->DBreturn("SELECT * FROM `table1` limit " . $limit);
+//    get all -> count
+//    limit = ?, compute -> page_number number for for loop
+    public function getData($limit, $page){
+        $tb = $this->data->DBreturn("SELECT * FROM `table1` limit " . $limit . " offset " . $page);
         while($r=mysqli_fetch_array($tb))
         {
             $res[]=$r;
@@ -34,5 +36,6 @@ class model
     {
         $this->data->DBreturn("UPDATE `table1` SET `title`='".$title."',`description`='".$des."',`status`='".$status."',`update_at`= NOW() WHERE id=".$id);
     }
+
 }
 ?>

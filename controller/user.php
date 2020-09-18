@@ -10,8 +10,8 @@ class user
     }
     public function index(){
         (isset($_POST['limit']) ?$limit = $_POST['limit'] : $limit = 5);
-        $page = 1;
-        $pr = $this->model->getdata($limit);
+        (isset($_GET['page']) ? $page = $_GET['page'] : $page = 1);
+        $pr = $this->model->getdata($limit, $page);
         require "view/User/user.html";
     }
 }

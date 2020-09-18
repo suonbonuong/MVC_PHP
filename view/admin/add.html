@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1><center> Add Form </center></h1>
-<form action="index.php?controller=admin&action=add" method="post" name ="add">
+<form action="index.php?controller=admin&action=add" method="post" name ="add" enctype='multipart/form-data'>
   <div class="form-group row">
     <label for="Title" class="col-4 col-form-label">Title</label>
     <div class="col-8">
@@ -17,7 +17,7 @@
   <div class="form-group row">
     <label class="col-4 col-form-label">Image</label>
     <div class="col-8">
-      <input type="file" id="myfile" name="myfile">
+      <input type="file" id="img" name="img">
     </div>
   </div>
   <div class="form-group row">

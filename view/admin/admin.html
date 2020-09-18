@@ -43,6 +43,22 @@
 		<a href="index.php?controller=admin&action=addview" class="btn btn-info" role="button" style="margin-bottom:0.5%;margin-left:94.5%;">Add</a>
 	</div>
 	<center>
+		<form action="index.php?controller=admin" method="post">
+			<select name="limit" id="limit" onchange='if(this.value != "") { this.form.submit(); }'>
+				<option value=""></option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+
+			</select>
+		</form>
+
+		<a href="index.php?controller=admin&page=1">1</a>
+		<a href="index.php?controller=admin&page=2">2</a>
+		<a href="index.php?controller=admin&page=3">3</a>
+		<a href="index.php?controller=admin&page=4">4</a>
+		<a href="index.php?controller=admin&page=5">5</a>
 		<table class="table table-bordered">
 		<tr class="thead-dark">
 			<th><center>ID</center></th>
@@ -55,9 +71,9 @@
 			?>
 			<tr>
 				<td style="width: 3%"><center><?php echo $item['id'];?></center></td>
-				<td style="width: 15%"><center><img src =<?php echo $item['image'];?> alt='anh'></center></td>
+				<td style="width: 15%"><center><img src="<?php $image_str = $item['image']; $str2 = substr($image_str, 17); echo $str2; ?>" alt='anh'></center></td>
 				<td style="width: 60%"><center><h3><?php echo $item['title'];?></h3></center></td>
-				<td style="width: 5%"> <center><a href=<?php echo "http://localhost/MVC/index.php?controller=admin&action=show&id=".$item['id'] ?>>show</a>|<a href=<?php echo "http://localhost/MVC/index.php?controller=admin&action=edit&id=".$item['id'] ?>>edit</a>|<a href=<?php echo "http://localhost/MVC/index.php?controller=admin&action=delete&id=".$item['id'] ?>>delete</a></center></td>
+				<td style="width: 5%"> <center><a href="<?php echo 'http://localhost/MVC/index.php?controller=admin&action=show&id=' . $item['id']; ?>">show</a>|<a href=<?php echo "http://localhost/MVC/index.php?controller=admin&action=edit&id=".$item['id'] ?>>edit</a>|<a href=<?php echo "http://localhost/MVC/index.php?controller=admin&action=delete&id=".$item['id'] ?>>delete</a></center></td>
 			</tr>
 			<?php
 			}

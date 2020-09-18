@@ -2,14 +2,24 @@
 
 require_once "controller/user.php";
 
-class admin extends user
+class admin
 {
-    public function index()
+    protected $model;
+    public function __construct()
     {
-        $pr = $this->model->getdata();
+        $this->model= new model();
+    }
+
+    public function index()
+
+    {
+        (isset($_POST['limit']) ?$limit = $_POST['limit'] : $limit = 1);
+        (isset($_GET['page']) ? $page = $_GET['page'] : $page = 1);
+        $pr = $this->model->getdata($limit, $page);
         require "view/admin/admin.html";
 
     }
+
     public function show(){
         $id = (int)$_GET["id"];
         $b = $this->model->get($id);
@@ -29,13 +39,24 @@ class admin extends user
     public function delete(){
         $id = (int)$_GET["id"];
         $this->model->delete($id);
-        $pr = $this->model->getdata();
-        require_once "view/admin/admin.html";
+        header("Location: view/admin/index.html?controller=admin");
+//        $pr = $this->model->getdata();
+//        require_once "view/admin/admin.html";
     }
     public function edit(){
         $id = (int)$_GET["id"];
         $b = $this->model->get($id);
         $img = $b["image"];
+        if ($_FILES['img']['name'] != '') {
+            $img = __DIR__."/opt/lampp/htdocs/MVC/".$_FILES['img']['name'];
+            if ($_FILES['img']['error'] > 0) {
+                echo 'not image';
+            } else {
+                move_uploaded_file($_FILES['img']['tmp_name'], $img);
+            }
+        } else {
+            $img = '';
+        }
         require "view/admin/edit.html";
         //return $img;
     }
@@ -46,6 +67,8 @@ class admin extends user
             $des = $_POST["Description"];
             $status = $_POST["status"];
             }
+
+
         $this->model->update($id,$title,$des,$status);
         $this->index();
     }
@@ -56,12 +79,20 @@ class admin extends user
         if(isset($_POST["add"]))
         {
             $title = $_POST["Title"];
-            $img = $_POST["myfile"];
             $des = $_POST["Description"];
             $status = $_POST["status"];
+            if ($_FILES['img']['name'] != '') {
+                $img = "/opt/lampp/htdocs/MVC/" . $_FILES['img']['name'];
+
+                move_uploaded_file($_FILES['img']['tmp_name'], $img);
+            } else {
+                $img = '';
+            }
             $this->model->add($title,$des,$img,$status);
             $this->index();
         }
+
     }
+
 }
 ?>
